@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader2, BookOpen } from 'lucide-react';
+import { Loader as Loader2, BookOpen } from 'lucide-react';
 import { clsx } from 'clsx';
 
 interface LoadingSpinnerProps {

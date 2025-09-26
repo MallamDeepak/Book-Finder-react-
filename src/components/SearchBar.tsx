@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import { Search, X, Filter } from 'lucide-react';
+import { Search, X, ListFilter as Filter } from 'lucide-react';
 import { clsx } from 'clsx';
 
 interface SearchBarProps {

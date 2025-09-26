@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertCircle, RefreshCw, Wifi, Server, Search } from 'lucide-react';
+import { CircleAlert as AlertCircle, RefreshCw, Wifi, Server, Search } from 'lucide-react';
 import { clsx } from 'clsx';
 
 interface ErrorMessageProps {
