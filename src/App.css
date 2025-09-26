@@ -1,0 +1,254 @@
+/* Additional custom styles for the Book Finder app */
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Cool hover effects for book grid */
+.book-grid {
+  perspective: 1000px;
+}
+
+.book-grid:hover .book-card:not(:hover) {
+  opacity: 0.3;
+  transform: scale(0.95);
+  filter: grayscale(50%) blur(1px);
+}
+
+.book-grid .book-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.book-grid .book-card:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) translateZ(50px) rotateY(5deg);
+  filter: none !important;
+  z-index: 50;
+}
+
+/* Glowing animation for hovered cards */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(168, 85, 247, 0.4);
+  }
+}
+
+.book-card:hover {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Floating animation for book covers */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1.1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.12);
+  }
+}
+
+.book-card:hover img {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced card shadows */
+.book-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.book-card:hover::before {
+  opacity: 1;
+}
+
+/* Gradient text animation */
+@keyframes gradient-text {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text 3s ease infinite;
+}
+
+/* Additional animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+/* Staggered fade-in for book cards */
+.book-card {
+  animation: fade-in 0.6s ease-out;
+}
+
+.book-card:nth-child(1) { animation-delay: 0.1s; }
+.book-card:nth-child(2) { animation-delay: 0.2s; }
+.book-card:nth-child(3) { animation-delay: 0.3s; }
+.book-card:nth-child(4) { animation-delay: 0.4s; }
+.book-card:nth-child(5) { animation-delay: 0.5s; }
+.book-card:nth-child(6) { animation-delay: 0.6s; }
+.book-card:nth-child(7) { animation-delay: 0.7s; }
+.book-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* Smooth transitions for the entire app */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Enhanced search form styles */
+.search-form-container {
+  position: relative;
+}
+
+.search-form-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.search-form-container:hover::before {
+  opacity: 0.3;
+}
+
+/* Glowing input focus effect */
+.search-input:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1), 
+              0 0 20px rgba(59, 130, 246, 0.2),
+              inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-select:focus {
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1), 
+              0 0 20px rgba(139, 92, 246, 0.2),
+              inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* History dropdown animations */
+.history-dropdown {
+  animation: slideDown 0.3s ease-out;
+  transform-origin: top;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: scaleY(0.8) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+/* Search button hover effect */
+.search-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.search-button:hover::before {
+  left: 100%;
+}
+
+/* Statistics cards hover effect */
+.stat-card {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
