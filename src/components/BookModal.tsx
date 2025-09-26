@@ -12,7 +12,7 @@ import {
   Eye,
   Info
 } from 'lucide-react';
-import { clsx } from 'clsx';
+// Removed: import { clsx } from 'clsx';
 
 interface BookModalProps {
   book: Book | null;
@@ -45,7 +45,8 @@ export const BookModal: React.FC<BookModalProps> = ({
 
   if (!isOpen || !book) return null;
 
-  const { volumeInfo, saleInfo, accessInfo } = book;
+  // Removed accessInfo from destructure
+  const { volumeInfo, saleInfo } = book;
   const {
     title,
     authors,
